@@ -12,11 +12,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import modelos.ModeloPersona;
 
@@ -70,6 +74,8 @@ public class tablaPersonasController {
     
     /** Identificador de si añade o modifica la persona. */
     private static boolean esAniadir=false;
+    
+    private  ContextMenu contextMenu;
 
     /**
      * Aniadir persona a la tabla llamando a una ventana modal.
@@ -182,6 +188,17 @@ public class tablaPersonasController {
     		filtro.setPredicate(persona -> persona.getNombre().contains(txtFiltro.getText()));
     	}
     }
+    /**
+     * Si se pulsa el click derecho sobre un objeto de la tabla, sale un menu contextual que da la opcion de modificar y eliminar
+     * 
+     * @param event
+     */
+    @FXML
+    void mostrarMenuContextual(MouseEvent event) {
+    	if(event.getButton()==MouseButton.SECONDARY) {
+    		contextMenu.show(MainApp.getStage());
+    	}
+    }
     
     /**
      * Inicializa el valor de las celdas.
@@ -194,6 +211,12 @@ public class tablaPersonasController {
     	tablaPersonas.getItems().addAll(DaoPersona.cargarListaPersonas());
     	listaTodas=tablaPersonas.getItems();
     	filtro = new FilteredList<ModeloPersona>(listaTodas);
+    	contextMenu = new ContextMenu();
+    	MenuItem item1 = new MenuItem("Modificar");
+        MenuItem item2 = new MenuItem("Eliminar");
+        item1.setOnAction(event -> modificarPersona(event));
+        item2.setOnAction(event -> eliminarPersona(event));
+        contextMenu.getItems().addAll(item1,item2);
     }
 
 	/**

@@ -1,0 +1,35 @@
+/* Estilos para los botones */
+.button {
+    -fx-background-color: #df1bce; /* Color de fondo verde */
+    -fx-text-fill: white; /* Color del texto blanco */
+    -fx-padding: 10px 20px; /* Padding interno del botón */
+    -fx-background-radius: 50px; /* Bordes del fondo redondeados */
+}
+
+.button:hover {
+    -fx-background-color: #700c65; /* Color al pasar el mouse */
+}
+
+.button:pressed {
+    -fx-background-color: #986c8d; /* Color cuando el botón está presionado */
+}
+
+/* Estilos para el TableView */
+.table-view {
+    -fx-background-color: #f9f9f9; /* Color de fondo de la tabla */
+    -fx-border-color: #bdbdbd; /* Color del borde de la tabla */
+}
+
+/* Estilos para las columnas del TableView */
+.column-header-background {
+    -fx-background-color: #7a0b7a; /* Fondo de los encabezados de columna */
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f0f0f0; /* Alterna colores en filas impares */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #ca00b6; /* Fondo de fila seleccionada */
+    -fx-text-fill: white; /* Texto blanco en fila seleccionada */
+}

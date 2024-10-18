@@ -6,18 +6,25 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctrl.tablaPersonasController">
+<VBox alignment="CENTER" spacing="20.0" stylesheets="@../styles/estilo.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctrl.tablaPersonasController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="700.0" spacing="10.0">
          <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/contactos.jpeg" />
+               </image>
+            </ImageView>
             <Label text="Filtar por nombre:" />
             <TextField fx:id="txtFiltro" onAction="#accionFiltrar" />
          </children>
       </HBox>
-      <TableView fx:id="tablaPersonas" prefWidth="700.0">
+      <TableView fx:id="tablaPersonas" onMouseClicked="#mostrarMenuContextual" prefWidth="700.0">
          <columns>
             <TableColumn fx:id="idTablaNombre" editable="false" prefWidth="340.7999938726425" text="Nombre" />
             <TableColumn fx:id="idTablaApellido" editable="false" minWidth="0.0" prefWidth="198.39999389648438" text="Apellidos" />
