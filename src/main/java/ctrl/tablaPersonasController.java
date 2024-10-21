@@ -23,6 +23,8 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import modelos.ModeloPersona;
+import org.kordamp.ikonli.javafx.FontIcon;
+import org.kordamp.ikonli.fontawesome5.FontAwesomeRegular;
 
 /**
  * Clase tablaPersonasController.
@@ -217,6 +219,15 @@ public class tablaPersonasController {
         item1.setOnAction(event -> modificarPersona(event));
         item2.setOnAction(event -> eliminarPersona(event));
         contextMenu.getItems().addAll(item1,item2);
+        FontIcon iconoAniadir = new FontIcon(FontAwesomeRegular.PLUS_SQUARE);
+        iconoAniadir.setIconColor(javafx.scene.paint.Color.WHITE);
+        btnAniadir.setGraphic(iconoAniadir);
+        FontIcon iconoModificar=new FontIcon(FontAwesomeRegular.CARET_SQUARE_UP);
+        iconoModificar.setIconColor(javafx.scene.paint.Color.WHITE);
+        btnModificar.setGraphic(iconoModificar);
+        FontIcon iconoEliminar=new FontIcon(FontAwesomeRegular.MINUS_SQUARE);
+        iconoEliminar.setIconColor(javafx.scene.paint.Color.WHITE);
+        btnEliminar.setGraphic(iconoEliminar);
     }
 
 	/**

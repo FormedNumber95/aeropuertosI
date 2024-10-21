@@ -14,6 +14,7 @@
     -fx-background-color: #986c8d; /* Color cuando el botón está presionado */
 }
 
+
 /* Estilos para el TableView */
 .table-view {
     -fx-background-color: #f9f9f9; /* Color de fondo de la tabla */
