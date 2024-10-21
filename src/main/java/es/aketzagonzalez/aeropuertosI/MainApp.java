@@ -9,9 +9,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.Properties;
+import java.util.ResourceBundle;
 
 import db.ConexionBBDD;
 
+// TODO: Auto-generated Javadoc
 /**
  * Clase MainApp.
  */
@@ -21,38 +25,44 @@ public class MainApp extends Application {
     private static Stage stage;
 
     /**
-     * Metodo que pone la imagen en el header y llama al setRoot de 2 parametros.
+     * Metodo que pone la imagen en el header, establece el idioma y llama al setRoot de 3 parametros.
      *
      * @param s El stage
      * @throws IOException Si hay algun error de entrada/salida.
      */
     @Override
     public void start(@SuppressWarnings("exports") Stage s) throws IOException {
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
         stage=s;
 		Image imagen=new Image(getClass().getResource("/imagenes/agenda.png").toString());
         stage.getIcons().add(imagen);
-		setRoot("tablaPersonas","Personas");
+		setRoot("tablaPersonas","Personas",bundle);
     }
 
     /**
-     * Establece the root llamando al setRoot de 2 parametros.
+     * Establece the root llamando al setRoot de 3 parametros.
      *
      * @param fxml El nuevo root
+     * @param bundle the bundle
      * @throws IOException Si hay algun error de entrada/salida.
      */
-    static void setRoot(String fxml) throws IOException {
-        setRoot(fxml,stage.getTitle());
+    static void setRoot(String fxml,ResourceBundle bundle) throws IOException {
+        setRoot(fxml,stage.getTitle(),bundle);
     }
 
     /**
-     * Establece el root y el titulo del stage.
+     * Establece el root, el bundle y el titulo del stage.
      *
      * @param fxml El fxml
      * @param title El titulo
+     * @param bundle the bundle
      * @throws IOException Si hay algun error de entrada/salida.
      */
-    static void setRoot(String fxml, String title) throws IOException {
-        Scene scene = new Scene(loadFXML(fxml));
+    static void setRoot(String fxml, String title,ResourceBundle bundle) throws IOException {
+        Scene scene = new Scene(loadFXML(fxml,bundle));
         stage.setTitle(title);
         stage.setScene(scene);
         stage.show();
@@ -62,11 +72,12 @@ public class MainApp extends Application {
      * Carga el FXML.
      *
      * @param fxml El fxml
+     * @param bundle the bundle
      * @return El fxml cargado
      * @throws IOException Señal de que hay un error de entrada/salida.
      */
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/fxml/"+fxml + ".fxml"));
+    private static Parent loadFXML(String fxml,ResourceBundle bundle) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/fxml/"+fxml + ".fxml"),bundle);
         return fxmlLoader.load();
     }
 

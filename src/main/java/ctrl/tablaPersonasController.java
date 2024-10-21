@@ -93,7 +93,7 @@ public class tablaPersonasController {
 		try {
 			 FXMLLoader controlador = new FXMLLoader(MainApp.class.getResource("/fxml/aniadirPersona.fxml"));
 			scene = new Scene(controlador.load());
-			s.setTitle("Nueva ModeloPersona");
+			s.setTitle("Nueva Persona");
 			s.setScene(scene);
 			aniadirPersonaController controller = controlador.getController();
 			controller.setTablaPersonas(tablaPersonas);

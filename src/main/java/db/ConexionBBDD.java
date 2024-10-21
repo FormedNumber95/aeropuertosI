@@ -1,11 +1,14 @@
 package db;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+// TODO: Auto-generated Javadoc
 /**
  * Clase ConexionBBDD.
  */
@@ -20,10 +23,9 @@ public class ConexionBBDD {
 	 * @throws SQLException the SQL exception
 	 */
 	public ConexionBBDD() throws SQLException {
-		 Properties connConfig = new Properties();
-         connConfig.setProperty("user", "root");
-         connConfig.setProperty("password", "mypass");
-         connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:33066/personas?serverTimezone=Europe/Madrid", connConfig);
+		 Properties connConfig =loadProperties() ;
+		 String url=connConfig.getProperty("dburl");
+         connection = DriverManager.getConnection(url, connConfig);
          connection.setAutoCommit(true);
          DatabaseMetaData databaseMetaData = connection.getMetaData();
        //debug
@@ -59,4 +61,21 @@ public class ConexionBBDD {
 		connection.close();
         return connection;
     }
+	
+	/**
+	 * Carga las propiedades del archivo db.properties.
+	 *
+	 * @return the properties
+	 */
+	public static Properties loadProperties() {
+		try (FileInputStream fs = new FileInputStream("db.properties")) {
+			Properties props = new Properties();
+			props.load(fs);
+			return props;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }

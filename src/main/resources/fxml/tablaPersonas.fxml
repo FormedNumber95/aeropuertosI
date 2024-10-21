@@ -21,7 +21,7 @@
                   <Image url="@../imagenes/contactos.jpeg" />
                </image>
             </ImageView>
-            <Label text="Filtar por nombre:" />
+            <Label text="%label.filtro" />
             <TextField fx:id="txtFiltro" onAction="#accionFiltrar">
                <tooltip>
                   <Tooltip text="filtrar para ver solo las personas cuyo nombre contiene la cadena escrita" />
@@ -37,15 +37,16 @@
       </TableView>
       <HBox alignment="CENTER" prefHeight="41.0" prefWidth="700.0" spacing="30.0">
          <children>
-            <Button fx:id="btnAniadir" mnemonicParsing="false" onAction="#aniadirPersona" text="Agregar Persona">
+            <Button fx:id="btnAniadir" mnemonicParsing="false" onAction="#aniadirPersona" text="%label.btnAniadir">
                <tooltip>
-                  <Tooltip text="Añade una nueva persona" />
-               </tooltip></Button>
-            <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#modificarPersona" text="Modificar Persona">
+                  <Tooltip text="%label.ayudaAniadir" />
+               </tooltip>
+            </Button>
+            <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#modificarPersona" text="%label.btnModificar">
                <tooltip>
                   <Tooltip text="Modifica el nobre, los apellidos y edad  de la persona seleccionada" />
                </tooltip></Button>
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarPersona" text="Eliminar Persona">
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarPersona" text="%label.btnEliminar">
                <tooltip>
                   <Tooltip text="Elimina la persona seleccionada" />
                </tooltip></Button>
