@@ -24,7 +24,7 @@
             <Label text="%label.filtro" />
             <TextField fx:id="txtFiltro" onAction="#accionFiltrar">
                <tooltip>
-                  <Tooltip text="filtrar para ver solo las personas cuyo nombre contiene la cadena escrita" />
+                  <Tooltip text="%label.ayudaFiltro" />
                </tooltip></TextField>
          </children>
       </HBox>
@@ -44,11 +44,11 @@
             </Button>
             <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#modificarPersona" text="%label.btnModificar">
                <tooltip>
-                  <Tooltip text="Modifica el nobre, los apellidos y edad  de la persona seleccionada" />
+                  <Tooltip text="%label.ayudaModificar" />
                </tooltip></Button>
             <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarPersona" text="%label.btnEliminar">
                <tooltip>
-                  <Tooltip text="Elimina la persona seleccionada" />
+                  <Tooltip text="%label.ayudaEliminar" />
                </tooltip></Button>
          </children>
       </HBox>
