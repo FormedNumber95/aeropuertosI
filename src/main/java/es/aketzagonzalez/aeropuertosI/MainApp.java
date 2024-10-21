@@ -78,7 +78,6 @@ public class MainApp extends Application {
      * @throws SQLException the SQL exception
      */
     public static void main(String[] args) throws SQLException {
-    	ConexionBBDD conexioPrueba= new ConexionBBDD();
         launch(args);
     }
 

@@ -77,6 +77,7 @@ public class tablaPersonasController {
     /** Identificador de si añade o modifica la persona. */
     private static boolean esAniadir=false;
     
+    /** El context menu. */
     private  ContextMenu contextMenu;
 
     /**
@@ -190,10 +191,11 @@ public class tablaPersonasController {
     		filtro.setPredicate(persona -> persona.getNombre().contains(txtFiltro.getText()));
     	}
     }
+    
     /**
-     * Si se pulsa el click derecho sobre un objeto de la tabla, sale un menu contextual que da la opcion de modificar y eliminar
-     * 
-     * @param event
+     * Si se pulsa el click derecho sobre un objeto de la tabla, sale un menu contextual que da la opcion de modificar y eliminar.
+     *
+     * @param event the event
      */
     @FXML
     void mostrarMenuContextual(MouseEvent event) {
