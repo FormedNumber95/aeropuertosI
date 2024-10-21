@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -21,7 +22,10 @@
                </image>
             </ImageView>
             <Label text="Filtar por nombre:" />
-            <TextField fx:id="txtFiltro" onAction="#accionFiltrar" />
+            <TextField fx:id="txtFiltro" onAction="#accionFiltrar">
+               <tooltip>
+                  <Tooltip text="filtrar para ver solo las personas cuyo nombre contiene la cadena escrita" />
+               </tooltip></TextField>
          </children>
       </HBox>
       <TableView fx:id="tablaPersonas" onMouseClicked="#mostrarMenuContextual" prefWidth="700.0">
@@ -33,9 +37,18 @@
       </TableView>
       <HBox alignment="CENTER" prefHeight="41.0" prefWidth="700.0" spacing="30.0">
          <children>
-            <Button fx:id="btnAniadir" mnemonicParsing="false" onAction="#aniadirPersona" text="Agregar Persona" />
-            <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#modificarPersona" text="Modificar Persona" />
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarPersona" text="Eliminar Persona" />
+            <Button fx:id="btnAniadir" mnemonicParsing="false" onAction="#aniadirPersona" text="Agregar Persona">
+               <tooltip>
+                  <Tooltip text="Añade una nueva persona" />
+               </tooltip></Button>
+            <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#modificarPersona" text="Modificar Persona">
+               <tooltip>
+                  <Tooltip text="Modifica el nobre, los apellidos y edad  de la persona seleccionada" />
+               </tooltip></Button>
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarPersona" text="Eliminar Persona">
+               <tooltip>
+                  <Tooltip text="Elimina la persona seleccionada" />
+               </tooltip></Button>
          </children>
       </HBox>
    </children>
