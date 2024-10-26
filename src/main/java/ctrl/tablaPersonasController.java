@@ -150,12 +150,16 @@ public class tablaPersonasController {
      */
     @FXML
     void modificarPersona(ActionEvent event) {
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
     	esAniadir=false;
     	if(tablaPersonas.getSelectionModel().getSelectedItem()!=null) {
 	    	s=new Stage();
 	    	Scene scene;
 			try {
-				 FXMLLoader controlador = new FXMLLoader(MainApp.class.getResource("/fxml/aniadirPersona.fxml"));
+				 FXMLLoader controlador = new FXMLLoader(MainApp.class.getResource("/fxml/aniadirPersona.fxml"),bundle);
 				scene = new Scene(controlador.load());
 				s.setTitle("Modificar ModeloPersona");
 				s.setScene(scene);
