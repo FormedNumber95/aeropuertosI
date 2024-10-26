@@ -1,8 +1,12 @@
 package ctrl;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.Properties;
+import java.util.ResourceBundle;
 
 import dao.DaoPersona;
+import db.ConexionBBDD;
 import es.aketzagonzalez.aeropuertosI.MainApp;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -87,11 +91,15 @@ public class tablaPersonasController {
      */
     @FXML
     void aniadirPersona(ActionEvent event) {
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
     	esAniadir=true;
     	s=new Stage();
     	Scene scene;
 		try {
-			 FXMLLoader controlador = new FXMLLoader(MainApp.class.getResource("/fxml/aniadirPersona.fxml"));
+			 FXMLLoader controlador = new FXMLLoader(MainApp.class.getResource("/fxml/aniadirPersona.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setTitle("Nueva Persona");
 			s.setScene(scene);

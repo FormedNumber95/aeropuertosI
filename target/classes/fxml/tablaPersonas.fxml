@@ -24,15 +24,15 @@
             <Label text="%label.filtro" />
             <TextField fx:id="txtFiltro" onAction="#accionFiltrar">
                <tooltip>
-                  <Tooltip text="filtrar para ver solo las personas cuyo nombre contiene la cadena escrita" />
+                  <Tooltip text="%label.ayudaFiltro" />
                </tooltip></TextField>
          </children>
       </HBox>
       <TableView fx:id="tablaPersonas" onMouseClicked="#mostrarMenuContextual" prefWidth="700.0">
          <columns>
-            <TableColumn fx:id="idTablaNombre" editable="false" prefWidth="340.7999938726425" text="Nombre" />
-            <TableColumn fx:id="idTablaApellido" editable="false" minWidth="0.0" prefWidth="198.39999389648438" text="Apellidos" />
-            <TableColumn fx:id="idTablaEdad" editable="false" minWidth="0.0" prefWidth="162.4000244140625" text="Edad" />
+            <TableColumn fx:id="idTablaNombre" editable="false" prefWidth="340.7999938726425" text="%label.nombre" />
+            <TableColumn fx:id="idTablaApellido" editable="false" minWidth="0.0" prefWidth="198.39999389648438" text="%label.apellidos" />
+            <TableColumn fx:id="idTablaEdad" editable="false" minWidth="0.0" prefWidth="162.4000244140625" text="%label.edad" />
          </columns>
       </TableView>
       <HBox alignment="CENTER" prefHeight="41.0" prefWidth="700.0" spacing="30.0">
@@ -44,11 +44,11 @@
             </Button>
             <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#modificarPersona" text="%label.btnModificar">
                <tooltip>
-                  <Tooltip text="Modifica el nobre, los apellidos y edad  de la persona seleccionada" />
+                  <Tooltip text="%label.ayudaModificar" />
                </tooltip></Button>
             <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarPersona" text="%label.btnEliminar">
                <tooltip>
-                  <Tooltip text="Elimina la persona seleccionada" />
+                  <Tooltip text="%label.ayudaEliminar" />
                </tooltip></Button>
          </children>
       </HBox>
