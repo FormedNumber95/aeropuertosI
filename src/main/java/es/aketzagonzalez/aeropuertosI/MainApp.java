@@ -15,7 +15,6 @@ import java.util.ResourceBundle;
 
 import db.ConexionBBDD;
 
-// TODO: Auto-generated Javadoc
 /**
  * Clase MainApp.
  */
